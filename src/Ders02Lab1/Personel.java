@@ -3,28 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ders2;
+package Ders02Lab1;
 
 /**
  *
  * @author anizam
  */
 public class Personel {
-    String adi,soyadi;
-    int maas;
+    String adi,soyadi,birim;
 
-    public Personel() {
-    }
-    
-    public Personel(String adi, String soyadi, int maas) {
+    public Personel(String adi, String soyadi, String birim) {
         this.adi = adi;
         this.soyadi = soyadi;
-        this.maas = maas;
+        this.birim = birim;
     }
     
-    Personel personelUret(){
-        return new Personel();
-    }
-            
     
 }

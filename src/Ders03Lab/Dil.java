@@ -3,20 +3,25 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ders2Lab1;
+package Ders03Lab;
 
 /**
  *
  * @author anizam
  */
-public class Personel {
-    String adi,soyadi,birim;
+public class Dil {
+    String adi,merhaba;
 
-    public Personel(String adi, String soyadi, String birim) {
+    public Dil(String adi, String merhaba) {
         this.adi = adi;
-        this.soyadi = soyadi;
-        this.birim = birim;
+        this.merhaba = merhaba;
     }
+
+    @Override
+    public String toString() {
+        return adi;
+    }
+    
     
     
 }
