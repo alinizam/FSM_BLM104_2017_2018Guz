@@ -12,7 +12,7 @@ package Ders03Lab;
 public class Ornek21 extends javax.swing.JFrame {
 
     String diller[]={"Türkçe","Arabça","?ngilizce","Frans?zca"};
-    String merhabalar[]={"Merhaba","Hi","Selam","Bonjour"};        
+    String merhabalar[]={"Merhaba","Selam","Hi","Bonjour"};        
     
     /**
      * Creates new form Ornek2

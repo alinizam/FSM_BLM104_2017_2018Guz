@@ -74,8 +74,9 @@ public class Ornek22 extends javax.swing.JFrame {
 
     private void cbDilItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbDilItemStateChanged
         // TODO add your handling code here:
-        lbMerhaba.setText(((Dil)(cbDil.getSelectedItem())).merhaba);
-        
+       Dil d=(Dil)cbDil.getSelectedItem();
+       lbMerhaba.setText(d.merhaba);
+       //lbMerhaba.setText(((Dil)(cbDil.getSelectedItem())).merhaba);
     }//GEN-LAST:event_cbDilItemStateChanged
 
     /**
@@ -107,7 +108,7 @@ public class Ornek22 extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
-
+       
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

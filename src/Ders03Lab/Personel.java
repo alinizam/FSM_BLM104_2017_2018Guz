@@ -9,17 +9,12 @@ package Ders03Lab;
  *
  * @author anizam
  */
-public class Dil {
-    String adi,merhaba;
+public class Personel {
+    
+    String adi;
 
-    public Dil(String adi, String merhaba) {
+    public Personel(String adi) {
         this.adi = adi;
-        this.merhaba = merhaba;
-    }
-
-   @Override
-    public String toString() {
-        return adi;
     }
     
     
