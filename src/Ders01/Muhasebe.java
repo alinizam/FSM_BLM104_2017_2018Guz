@@ -12,11 +12,11 @@ package Ders01;
 public class Muhasebe {
     public static void main(String[] args) {
         Personel p1=new Personel();
-        System.out.println(p1.maas);
+      // Hatal? kod örne?i  System.out.println(p1.maas);
         p1.maasArttir();
-        System.out.println(p1.maas);
+      //  System.out.println(p1.maas);
         p1.maasArttir();
-        System.out.println(p1.maas);
+      //  System.out.println(p1.maas);
         
     }
     
