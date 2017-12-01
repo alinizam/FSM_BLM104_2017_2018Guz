@@ -148,7 +148,6 @@ public class Ornek4 extends javax.swing.JFrame {
                     txtSoyadi.setText(rs.getString("soyadi"));
                     txtMaas.setText(rs.getString("maas"));
                 }
-
             }
 
         } catch (SQLException ex) {
