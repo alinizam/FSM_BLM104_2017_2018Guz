@@ -11,8 +11,8 @@ package Ders11Lab;
  */
 public class Unvan {
     int unvanId;
-    String adi;
-
+    String adi;   
+  
     public Unvan(int unvanId, String adi) {
         this.unvanId = unvanId;
         this.adi = adi;
