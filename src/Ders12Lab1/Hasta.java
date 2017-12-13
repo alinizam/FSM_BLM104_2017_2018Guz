@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ders12Lab;
+package Ders12Lab1;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -20,37 +20,40 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author anizam
  */
 @Entity
-@Table(name = "DOKTOR")
+@Table(name = "HASTA")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Doktor.findAll", query = "SELECT d FROM Doktor d"),
-    @NamedQuery(name = "Doktor.findByDoktorId", query = "SELECT d FROM Doktor d WHERE d.doktorId = :doktorId"),
-    @NamedQuery(name = "Doktor.findByAdi", query = "SELECT d FROM Doktor d WHERE d.adi = :adi"),
-    @NamedQuery(name = "Doktor.findBySoyadi", query = "SELECT d FROM Doktor d WHERE d.soyadi = :soyadi")})
-public class Doktor implements Serializable {
+    @NamedQuery(name = "Hasta.findAll", query = "SELECT h FROM Hasta h"),
+    @NamedQuery(name = "Hasta.findByHastaId", query = "SELECT h FROM Hasta h WHERE h.hastaId = :hastaId"),
+    @NamedQuery(name = "Hasta.findByAdi", query = "SELECT h FROM Hasta h WHERE h.adi = :adi"),
+    @NamedQuery(name = "Hasta.findBySoyadi", query = "SELECT h FROM Hasta h WHERE h.soyadi = :soyadi"),
+    @NamedQuery(name = "Hasta.findByDoktorId", query = "SELECT h FROM Hasta h WHERE h.doktorId = :doktorId")})
+public class Hasta implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
-    @Column(name = "DOKTOR_ID")
-    private Integer doktorId;
+    @Column(name = "HASTA_ID")
+    private Integer hastaId;
     @Column(name = "ADI")
     private String adi;
     @Column(name = "SOYADI")
     private String soyadi;
+    @Column(name = "DOKTOR_ID")
+    private Integer doktorId;
 
-    public Doktor() {
+    public Hasta() {
     }
 
-    public Doktor(Integer doktorId) {
-        this.doktorId = doktorId;
+    public Hasta(Integer hastaId) {
+        this.hastaId = hastaId;
     }
 
-    public Integer getDoktorId() {
-        return doktorId;
+    public Integer getHastaId() {
+        return hastaId;
     }
 
-    public void setDoktorId(Integer doktorId) {
-        this.doktorId = doktorId;
+    public void setHastaId(Integer hastaId) {
+        this.hastaId = hastaId;
     }
 
     public String getAdi() {
@@ -69,21 +72,29 @@ public class Doktor implements Serializable {
         this.soyadi = soyadi;
     }
 
+    public Integer getDoktorId() {
+        return doktorId;
+    }
+
+    public void setDoktorId(Integer doktorId) {
+        this.doktorId = doktorId;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (doktorId != null ? doktorId.hashCode() : 0);
+        hash += (hastaId != null ? hastaId.hashCode() : 0);
         return hash;
     }
 
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Doktor)) {
+        if (!(object instanceof Hasta)) {
             return false;
         }
-        Doktor other = (Doktor) object;
-        if ((this.doktorId == null && other.doktorId != null) || (this.doktorId != null && !this.doktorId.equals(other.doktorId))) {
+        Hasta other = (Hasta) object;
+        if ((this.hastaId == null && other.hastaId != null) || (this.hastaId != null && !this.hastaId.equals(other.hastaId))) {
             return false;
         }
         return true;
@@ -91,7 +102,7 @@ public class Doktor implements Serializable {
 
     @Override
     public String toString() {
-        return adi+" "+soyadi;
+        return "Ders12Lab.Hasta[ hastaId=" + hastaId + " ]";
     }
     
 }

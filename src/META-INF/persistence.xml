@@ -3,8 +3,8 @@
   <persistence-unit name="BLM104_2017_2018_GuzPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Ders12.Birim</class>
-    <class>Ders12Lab.Hasta</class>
-    <class>Ders12Lab.Doktor</class>
+    <class>Ders12Lab1.Hasta</class>
+    <class>Ders12Lab1.Doktor</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/sample"/>
       <property name="javax.persistence.jdbc.user" value="app"/>
