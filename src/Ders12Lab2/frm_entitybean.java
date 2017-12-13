@@ -24,7 +24,7 @@ public class frm_entitybean extends javax.swing.JFrame {
     DefaultComboBoxModel cbMusteriler = new DefaultComboBoxModel();
     DefaultTableModel dtm = new DefaultTableModel();
 
-    List<Musteri> müsteriler = new ArrayList<>();
+    List<Musteri> musteriler = new ArrayList<>();
     List<Malzeme> malzemeler = new ArrayList<>();
 
     /**
@@ -39,8 +39,8 @@ public class frm_entitybean extends javax.swing.JFrame {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("entitybeanPU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createQuery("SELECT m from Musteri m");
-        müsteriler = q.getResultList();
-        for (Musteri mus : müsteriler) {
+        musteriler = q.getResultList();
+        for (Musteri mus : musteriler) {
             cbMusteriler.addElement(mus);
         }
         jComboBox1.setModel(cbMalzemeler);
@@ -197,9 +197,9 @@ public class frm_entitybean extends javax.swing.JFrame {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("entitybeanPU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createQuery("SELECT m from Satis m");
-        List<Satis> satıslar = q.getResultList();
+        List<Satis> satislar = q.getResultList();
         int maxid = 0;
-        for (Satis satis : satıslar) {
+        for (Satis satis : satislar) {
             if (satis.getSId() > maxid) {
                 maxid = satis.getSId();
             }
@@ -210,7 +210,7 @@ public class frm_entitybean extends javax.swing.JFrame {
         s.setAdet(Integer.parseInt(txt_adet.getText()));
         s.setTutar(Integer.parseInt(txt_tutar.getText()));
         s.setMalId(malzemeler.get(jComboBox1.getSelectedIndex()).getMalId());
-        s.setMusteriId(müsteriler.get(jComboBox2.getSelectedIndex()).getMusteriId());
+        s.setMusteriId(musteriler.get(jComboBox2.getSelectedIndex()).getMusteriId());
         s.setSId(maxid + 1);
         em.persist(s);
         em.getTransaction().commit();
@@ -221,8 +221,8 @@ public class frm_entitybean extends javax.swing.JFrame {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("entitybeanPU");
         EntityManager em = emf.createEntityManager();
         Query q = em.createQuery("SELECT m from Satis m");
-        List<Satis> satıslar = q.getResultList();
-        for (Satis satis : satıslar) {
+        List<Satis> satislar = q.getResultList();
+        for (Satis satis : satislar) {
             Query q2 = em.createQuery("SELECT m from Malzeme m where m.malId=:mID");
             q2.setParameter("mID", satis.getMalId());
             Malzeme m = (Malzeme) q2.getSingleResult();
