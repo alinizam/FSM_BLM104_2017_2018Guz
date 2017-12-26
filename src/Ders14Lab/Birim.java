@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ders12;
+package Ders14Lab;
 
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -15,7 +13,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -32,8 +29,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Birim.findByAdresIl", query = "SELECT b FROM Birim b WHERE b.adresIl = :adresIl"),
     @NamedQuery(name = "Birim.findByKazanc", query = "SELECT b FROM Birim b WHERE b.kazanc = :kazanc")})
 public class Birim implements Serializable {
-    @Transient
-    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -49,15 +44,6 @@ public class Birim implements Serializable {
     public Birim() {
     }
 
-    public Birim(Integer birimId, String birimAdi, Integer adresIl, Integer kazanc) {
-        this.birimId = birimId;
-        this.birimAdi = birimAdi;
-        this.adresIl = adresIl;
-        this.kazanc = kazanc;
-    }
-    
-    
-
     public Birim(Integer birimId) {
         this.birimId = birimId;
     }
@@ -67,9 +53,7 @@ public class Birim implements Serializable {
     }
 
     public void setBirimId(Integer birimId) {
-        Integer oldBirimId = this.birimId;
         this.birimId = birimId;
-        changeSupport.firePropertyChange("birimId", oldBirimId, birimId);
     }
 
     public String getBirimAdi() {
@@ -77,9 +61,7 @@ public class Birim implements Serializable {
     }
 
     public void setBirimAdi(String birimAdi) {
-        String oldBirimAdi = this.birimAdi;
         this.birimAdi = birimAdi;
-        changeSupport.firePropertyChange("birimAdi", oldBirimAdi, birimAdi);
     }
 
     public Integer getAdresIl() {
@@ -87,9 +69,7 @@ public class Birim implements Serializable {
     }
 
     public void setAdresIl(Integer adresIl) {
-        Integer oldAdresIl = this.adresIl;
         this.adresIl = adresIl;
-        changeSupport.firePropertyChange("adresIl", oldAdresIl, adresIl);
     }
 
     public Integer getKazanc() {
@@ -97,9 +77,7 @@ public class Birim implements Serializable {
     }
 
     public void setKazanc(Integer kazanc) {
-        Integer oldKazanc = this.kazanc;
         this.kazanc = kazanc;
-        changeSupport.firePropertyChange("kazanc", oldKazanc, kazanc);
     }
 
     @Override
@@ -124,15 +102,7 @@ public class Birim implements Serializable {
 
     @Override
     public String toString() {
-        return "Ders12.Birim[ birimId=" + birimId + " ]";
-    }
-
-    public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.addPropertyChangeListener(listener);
-    }
-
-    public void removePropertyChangeListener(PropertyChangeListener listener) {
-        changeSupport.removePropertyChangeListener(listener);
+        return "Ders14Lab.Birim[ birimId=" + birimId + " ]";
     }
     
 }

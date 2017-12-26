@@ -5,6 +5,7 @@
  */
 package Ders12;
 
+import Ders14Lab.Birim;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;

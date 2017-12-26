@@ -5,6 +5,7 @@
  */
 package Ders13Lab;
 
+import Ders14Lab.Personel;
 import java.io.BufferedOutputStream;
 import java.io.DataOutputStream;
 import java.io.FileNotFoundException;

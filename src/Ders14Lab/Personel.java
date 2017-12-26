@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Ders13Lab;
+package Ders14Lab;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -13,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -34,6 +37,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Personel.findByAdresIlce", query = "SELECT p FROM Personel p WHERE p.adresIlce = :adresIlce"),
     @NamedQuery(name = "Personel.findByBirimAdi", query = "SELECT p FROM Personel p WHERE p.birimAdi = :birimAdi")})
 public class Personel implements Serializable {
+    @Transient
+    private PropertyChangeSupport changeSupport = new PropertyChangeSupport(this);
     private static final long serialVersionUID = 1L;
     @Id
     @Basic(optional = false)
@@ -68,7 +73,9 @@ public class Personel implements Serializable {
     }
 
     public void setPersonelId(Integer personelId) {
+        Integer oldPersonelId = this.personelId;
         this.personelId = personelId;
+        changeSupport.firePropertyChange("personelId", oldPersonelId, personelId);
     }
 
     public String getAdi() {
@@ -76,7 +83,9 @@ public class Personel implements Serializable {
     }
 
     public void setAdi(String adi) {
+        String oldAdi = this.adi;
         this.adi = adi;
+        changeSupport.firePropertyChange("adi", oldAdi, adi);
     }
 
     public String getSoyadi() {
@@ -84,7 +93,9 @@ public class Personel implements Serializable {
     }
 
     public void setSoyadi(String soyadi) {
+        String oldSoyadi = this.soyadi;
         this.soyadi = soyadi;
+        changeSupport.firePropertyChange("soyadi", oldSoyadi, soyadi);
     }
 
     public Integer getMaas() {
@@ -92,7 +103,9 @@ public class Personel implements Serializable {
     }
 
     public void setMaas(Integer maas) {
+        Integer oldMaas = this.maas;
         this.maas = maas;
+        changeSupport.firePropertyChange("maas", oldMaas, maas);
     }
 
     public Integer getDepartmanId() {
@@ -100,7 +113,9 @@ public class Personel implements Serializable {
     }
 
     public void setDepartmanId(Integer departmanId) {
+        Integer oldDepartmanId = this.departmanId;
         this.departmanId = departmanId;
+        changeSupport.firePropertyChange("departmanId", oldDepartmanId, departmanId);
     }
 
     public Integer getUnvanId() {
@@ -108,7 +123,9 @@ public class Personel implements Serializable {
     }
 
     public void setUnvanId(Integer unvanId) {
+        Integer oldUnvanId = this.unvanId;
         this.unvanId = unvanId;
+        changeSupport.firePropertyChange("unvanId", oldUnvanId, unvanId);
     }
 
     public String getAdresIl() {
@@ -116,7 +133,9 @@ public class Personel implements Serializable {
     }
 
     public void setAdresIl(String adresIl) {
+        String oldAdresIl = this.adresIl;
         this.adresIl = adresIl;
+        changeSupport.firePropertyChange("adresIl", oldAdresIl, adresIl);
     }
 
     public Integer getAdresIlce() {
@@ -124,7 +143,9 @@ public class Personel implements Serializable {
     }
 
     public void setAdresIlce(Integer adresIlce) {
+        Integer oldAdresIlce = this.adresIlce;
         this.adresIlce = adresIlce;
+        changeSupport.firePropertyChange("adresIlce", oldAdresIlce, adresIlce);
     }
 
     public String getBirimAdi() {
@@ -132,7 +153,9 @@ public class Personel implements Serializable {
     }
 
     public void setBirimAdi(String birimAdi) {
+        String oldBirimAdi = this.birimAdi;
         this.birimAdi = birimAdi;
+        changeSupport.firePropertyChange("birimAdi", oldBirimAdi, birimAdi);
     }
 
     @Override
@@ -157,7 +180,15 @@ public class Personel implements Serializable {
 
     @Override
     public String toString() {
-        return "Ders13Lab.Personel[ personelId=" + personelId + " ]";
+        return "Ders14Lab.Personel[ personelId=" + personelId + " ]";
+    }
+
+    public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.addPropertyChangeListener(listener);
+    }
+
+    public void removePropertyChangeListener(PropertyChangeListener listener) {
+        changeSupport.removePropertyChangeListener(listener);
     }
     
 }
